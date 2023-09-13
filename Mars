@@ -1,0 +1,23 @@
+public static int marsExploration(String s) {
+    int counter_errors = 0;
+    for(int i = 0;i < s.length(); i++){
+        char indiv_string = s.charAt(i);            //SOS is three strings
+        if(indiv_string != 'S'){
+            counter_errors++;
+        }
+        else if(indiv_string !='O'){
+            counter_errors++;
+            
+            
+        }
+            
+        }
+    int answer = s.length()/counter_errors;
+        
+    return answer;
+    }
+    
+    
+    
+
+}
