@@ -1,0 +1,7 @@
+ int a = 0;
+    for (int i = 0; i<ar.size();i++){
+          a += ar.get(i);
+    
+    }
+   return a;
+   
