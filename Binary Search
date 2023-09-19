@@ -1,0 +1,44 @@
+import java.util.Arrays;
+
+public class BinarySearch {
+    public static int binaryS(int[] A, int e) {
+        return TbinaryS(A, e, 0, A.length - 1);
+    }
+
+    private static int TbinaryS(int[] A, int e, int left, int right) {
+        if (A == null || left > right) {
+            return -1;
+        }
+
+        int midpoint = (right + left) / 2;
+        if (e == A[midpoint]) {
+            return midpoint;
+        } else if (e < A[midpoint]) {
+            return TbinaryS(A, e, left, midpoint - 1);
+        } else {
+            return TbinaryS(A, e, midpoint + 1, right);
+        }
+    }
+
+
+
+    public static void main(String[] args) {
+        int max_expo = 6;
+        for (int expo = 2; expo <= max_expo; expo++) {
+            int A_size = (int) Math.pow(10, expo);
+            int[] Arry = new int[A_size];
+
+            for (int i = 0; i < A_size; i++) {
+                Arry[i] = i;
+            }
+
+            int e = A_size / 2;
+            long time_start = System.nanoTime();
+            int result = BinarySearch.binaryS(Arry, e);
+            long end = System.nanoTime();
+            long stopwatch = (end - time_start);
+
+            System.out.println("Array size: " + expo + ", Time taken: " + stopwatch + "ns");
+        }
+    }
+}
