@@ -2,21 +2,22 @@ import java.util.Arrays;
 
 public class BinarySearch {
     public static int binaryS(int[] A, int e) {
-        return TbinaryS(A, e, 0, A.length - 1);
+        return TbinaryS(A, e, 0, A.length - 1); //These values represent the values done on the private function, i.e left is 0, and right is A.length -1.
     }
 
-    private static int TbinaryS(int[] A, int e, int left, int right) {
+    private static int TbinaryS(int[] A, int e, int left, int right) //This implement means it takes up to 4 values; right and left tak into account the elemtns right and left of the element needed to be found 
+    {
         if (A == null || left > right) {
-            return -1;
+            return -1;          //Check for null values; Return                                                    -1 as false 
         }
 
-        int midpoint = (right + left) / 2;
+        int midpoint = (right + left) / 2;   //you preforme the calculations according to the left and right values, there you comemence binary search. 
         if (e == A[midpoint]) {
             return midpoint;
         } else if (e < A[midpoint]) {
-            return TbinaryS(A, e, left, midpoint - 1);
+            return TbinaryS(A, e, left, midpoint - 1); //If the element is to the left, then you search it down recursively through the left, (midpoint - 1); returns the left hand side, element e, and the Array. 
         } else {
-            return TbinaryS(A, e, midpoint + 1, right);
+            return TbinaryS(A, e, midpoint + 1, right); //if element is to the right, you search through the right of it(midpoint + 1; returns the rights side, the array, and the element)
         }
     }
 
@@ -24,7 +25,7 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int max_expo = 6;
-        for (int expo = 2; expo <= max_expo; expo++) {
+        for (int expo = 2; expo <= max_expo; expo++) { //This code (Thanks to Isaac and his group) includes the manys sized Arrays the Binary Search goes through, exposing it  exponential large number of Arrays, (i.e sufficient input size) to plot the graph to accurantly prdict the run time. 
             int A_size = (int) Math.pow(10, expo);
             int[] Arry = new int[A_size];
 
@@ -34,7 +35,7 @@ public class BinarySearch {
 
             int e = A_size / 2;
             long time_start = System.nanoTime();
-            int result = BinarySearch.binaryS(Arry, e);
+            int result = BinarySearch.binaryS(Arry, e); //This code just acts as a stopwhatch to determine the code's runtime 
             long end = System.nanoTime();
             long stopwatch = (end - time_start);
 
@@ -42,3 +43,4 @@ public class BinarySearch {
         }
     }
 }
+
