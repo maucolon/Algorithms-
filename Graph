@@ -1,0 +1,30 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Data
+array_sizes = [10**2, 10**3, 10**4, 10**5, 10**6]
+time_taken = [4731.0, 2930.0, 3530.0, 6120.0, 19320.0]
+
+# Convert array sizes to logarithmic scale for better visualization
+log_array_sizes = np.log10(array_sizes)
+
+# Create a DataFrame
+import pandas as pd
+df = pd.DataFrame({
+    'Time Taken (ms)': time_taken,
+    'Array Size': log_array_sizes
+})
+
+# Create the plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='Time Taken (ms)', y='Array Size', data=df, s=100, color='red')
+sns.lineplot(x='Time Taken (ms)', y='Array Size', data=df)
+
+# Customize the plot
+plt.title('Run Time Analysis of Recursive Binary Search')
+plt.ylabel('Array Size (log10 scale)')
+plt.xlabel('Time Taken (milliseconds)')
+plt.grid(True)
+
+plt.show()
