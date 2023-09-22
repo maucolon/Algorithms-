@@ -1,0 +1,36 @@
+class Result {
+
+    /*
+     * Complete the 'hackerrankInString' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static String hackerrankInString(String s) {
+    return Helper(s, 0, 0); //We use the helper method as a private function because private functions can be called upon in the same class.
+
+    }
+    private static String Helper(String s, int Bindex, int Eindex){
+    //This is the collection of strings we have to target, in that exact order
+        String correct = "hackerrank";  
+                                        // must include base case, and the base cas must be if the tracker has the same number as the length of the word
+        if(Eindex == correct.length()){
+            return "YES";
+        }
+        
+        if(Bindex == s.length()){    //s is the representation of the given string
+        
+            return "NO";
+        }
+        char s_1 = s.charAt(Bindex);
+        char tracker_1 = correct.charAt(Eindex);
+        if(s_1 == tracker_1){
+            return Helper(s, Bindex + 1, Eindex + 1);  //I figured out my error just in time!!, i kept using one tracker when i realized that i needed a staring tracker and an ending tracker in the index
+        }
+        else{
+            return Helper(s, Bindex + 1, Eindex);
+        }
+    }
+
+}
