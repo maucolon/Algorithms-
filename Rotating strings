@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+
+class Rotate {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter String: ");
+        String in = scan.nextLine();
+        scan.close();
+        int limit = in.length();
+        System.out.println("Rotations of '" + in + " ' :");
+        Rotateprint(in, limit);
+        
+        
+       
+    }
+    private static String Rotator(String in){
+       return in.substring(1) + in.charAt(0); //this is the rotator, while recursively calling it, it roatates the strings until it is back in the original string
+    }
+    private static void Rotateprint(String in, int limit){
+        System.out.println(in);
+        if(in.length() > 1 && limit > 1){
+           Rotateprint(Rotator(in), limit - 1); 
+        }
+    }
+}
