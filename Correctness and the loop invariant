@@ -4,7 +4,7 @@ public class Solution {
         for(int i = 1; i < A.length; i++){
             int value = A[i];
             int j = i - 1;
-            while(j >= 0 && A[j] > value){ //The error was in the while loop here, as it was previously just strictly more then, however it must be changed to 0 because the index must start at value 0. 
+            while(j >= 0 && A[j] > value){ //The error was in the while loop here, as it was previously just strictly more then, however it must be changed to equal or more than because the index must start at value 0. 
                 A[j + 1] = A[j];
                 j = j - 1;
             }
