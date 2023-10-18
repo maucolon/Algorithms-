@@ -1,0 +1,36 @@
+class Result {
+
+    /*
+     * Complete the 'twoStrings' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. STRING s1
+     *  2. STRING s2
+     */
+
+
+    public static String twoStrings(String s1, String s2) {
+        return helper(s1, s2, 0, 0) ? "YES" : "NO";
+        
+
+
+    }
+    private static boolean helper(String s1, String s2, int val_1, int val_2){
+    if(val_1 == s1.length() || val_2 == s2.length()){
+        return false;} //base case that will indicate if the values and length equal they have fnished comparing 
+        if(s1.charAt(val_1) == s2.charAt(val_2)){
+            return true;
+             
+        }
+        else{
+            return helper(s1, s2, val_1 + 1, val_2) || helper(s1, s2, val_1, val_2 + 1);
+
+        }
+    
+        
+    }
+    
+        
+
+}
