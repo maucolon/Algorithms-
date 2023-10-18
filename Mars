@@ -1,23 +1,29 @@
-public static int marsExploration(String s) {
+class Result {
+
+    /*
+     * Complete the 'marsExploration' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts STRING s as parameter.
+     */
+
+  public static int marsExploration(String s) {
     int counter_errors = 0;
     for(int i = 0;i < s.length(); i++){
-        char indiv_string = s.charAt(i);            //SOS is three strings
-        if(indiv_string != 'S'){
+        char indiv_string = s.charAt(i);            //SOS is three strings, i is the element that goes thorugh the string, and 3 since it is (SOS, and positions being fixed as 0, 1, 2) the limit hence you do i % 3 tpo be able to get the index of each string. 
+        if(i % 3 == 0 &&indiv_string != 'S'){
             counter_errors++;
         }
-        else if(indiv_string !='O'){
+        else if(i % 3 == 1 && indiv_string !='O'){
             counter_errors++;
-            
-            
+          }
+        else if(i % 3 == 2 && indiv_string != 'S'){
+            counter_errors++;
         }
             
         }
-    int answer = s.length()/counter_errors;
         
-    return answer;
+    return counter_errors;
     }
     
-    
-    
-
 }
