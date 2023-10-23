@@ -1,0 +1,33 @@
+class Result {
+
+    /*
+     * Complete the 'plusMinus' function below.
+     *
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static void plusMinus(List<Integer> arr) {
+    double x = 0;
+    double y = 0;
+    double z = 0;
+    double n = arr.size();
+    for(int i = 0; i < arr.size(); i++){
+        if(arr.get(i) == 0){
+            x++;
+        }
+        else if (arr.get(i) > 0){
+            y++;
+        }
+        else{
+            z++;
+        }
+    }
+    x = x / n;
+    y = y / n;
+    z = z / n;
+    System.out.println(y);
+    System.out.println(z);
+    System.out.println(x);
+    }
+
+}
