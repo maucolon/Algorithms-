@@ -1,0 +1,26 @@
+  public static List<Integer> icecreamParlor(int m, List<Integer> arr) {
+    List <Integer> results = new ArrayList<>();
+    List <Integer> bought_Ice_cream = new ArrayList();
+    icecream(m,arr,results,0);
+    return results;
+    }
+    private static void icecream(int m, List<Integer> arr, List <Integer> results, int t, List <Integer> bought_ice_cream, int amount_bought_ice, int sum_of_ice, int closest){
+    if(amount_bout_ice == 3){
+        if(sum_of_ice <= m && m)
+    }
+    if (t >= arr.size()){
+        return;
+    }
+    int target= arr.get(t);
+    int remaining_ice = m - target;
+    for(int i = t + 1; i < arr.size(); i++){
+        if(arr.get(i) == remaining_ice){
+            results.add(t + 1);
+            results.add(i+1);
+        }
+        
+    }
+    icecream(m,arr,results,t+1);
+
+    }
+}
