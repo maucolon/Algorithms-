@@ -1,0 +1,36 @@
+class Result {
+
+    /*
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER m
+     *  2. INTEGER_ARRAY arr
+     */
+
+    public static int icecreamParlor(int m, List<Integer> arr) {
+        int[][] dp = new int[arr.size()][m + 1];
+        for (int i = 0; i < arr.size(); i++) {
+            Arrays.fill(dp[i], -1);
+        }
+        return countCombinations(arr, m, 0, 0, dp) * 2;
+    }
+
+    private static int countCombinations(List<Integer> arr, int m, int index, int count, int[][] dp) {
+        if (m == 0 && count == 2) {
+            return 1;
+        }
+        if (index >= arr.size() || m < 0|| count > 2) {
+            return 0;
+        }
+        if (dp[index][m] != -1) {
+            return dp[index][m];
+        }
+       
+        int include = countCombinations(arr, m - arr.get(index), index + 1, count + 1, dp);
+     
+        int exclude = countCombinations(arr, m, index + 1, count, dp);
+
+        dp[index][m] = include + exclude;
+        return dp[index][m];
+    }
+}
