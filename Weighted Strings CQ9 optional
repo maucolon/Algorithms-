@@ -1,0 +1,62 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'weightedUniformStrings' function below.
+     *
+     * The function is expected to return a STRING_ARRAY.
+     * The function accepts following parameters:
+     *  1. STRING s
+     *  2. INTEGER_ARRAY queries
+     */
+
+    public static List<String> weightedUniformStrings(String s, List<Integer> queries) {
+     //reads the integer, start at string 'a' since 'a' = 1
+    List <String> list = new ArrayList<>();
+    Set<Integer> Weighted_val = new HashSet<>();
+    char first = s.charAt(0);  
+    int sum_of_strings = first - 'a' + 1;
+    Weighted_val.add(sum_of_strings);
+    for(int i = 1; i < s.length(); i++){ //Loops through the string 
+        char last = s.charAt(i);
+        if(first == last){
+            sum_of_strings += (last - 'a' + 1);
+            
+        }
+        else {
+            first = last;
+            sum_of_strings = first - 'a' + 1;
+        }
+        Weighted_val.add(sum_of_strings);
+    
+        
+    }
+
+
+    for(int j: queries){
+        if(Weighted_val.contains(j)){
+            list.add("Yes");
+        }
+        else{
+            list.add("No");
+        }
+    }
+    return list;
+    
+    
+    
+
+    }
+
+}
